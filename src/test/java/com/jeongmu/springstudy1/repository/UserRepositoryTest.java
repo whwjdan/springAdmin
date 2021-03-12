@@ -4,8 +4,10 @@ import com.jeongmu.springstudy1.Springstudy1ApplicationTests;
 import com.jeongmu.springstudy1.model.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 public class UserRepositoryTest extends Springstudy1ApplicationTests {
 
@@ -29,13 +31,30 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
         System.out.println("newUser : " + newUser);
     }
 
+    @Test
     public void read(){
+        // id가 Long 타입이므로 2뒤에 L붙임
+        // Optional 있을 수 도 있고 없을 수 도 있다.
+        Optional<User> user = userRepository.findById(2L);
 
+        user.ifPresent(selectUser ->{
+            System.out.println("user : "+selectUser);
+            System.out.println("email : "+selectUser.getEmail());
+        } );
 
     }
 
+    @Test
     public void update(){
+        Optional<User> user = userRepository.findById(2L);
 
+        user.ifPresent(selectUser ->{
+            selectUser.setAccount("pppp");
+            selectUser.setUpdatedAt(LocalDateTime.now());
+            selectUser.setUpdatedBy("update method()");
+
+            userRepository.save(selectUser);
+              } );
     }
 
 }
