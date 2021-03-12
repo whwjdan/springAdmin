@@ -2,12 +2,14 @@ package com.jeongmu.springstudy1.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class User {
 
@@ -23,13 +25,10 @@ public class User {
 
     private LocalDateTime createdAt;
 
-    private LocalDateTime createdBy;
+    private String createdBy;
 
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
-    private LocalDateTime updateBy;
+    private String updatedBy;
 
-    public User() {
-
-    }
 }
