@@ -5,6 +5,7 @@ import com.jeongmu.springstudy1.model.entity.User;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
@@ -59,8 +60,10 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
     }
 
     @Test
+    @Transactional
+    // 데이터베이스 커밋하지 않고 롤백시킴
     public void delete(){
-        Optional<User> user = userRepository.findById(1L);
+        Optional<User> user = userRepository.findById(3L);
 
         Assert.assertTrue(user.isPresent());
 
