@@ -17,6 +17,7 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 **/src/main/**/Config/
+src/test/java/com/jeongmu/springstudy1/JasyptTests.java
 ### IntelliJ IDEA ###
 .idea
 *.iws
