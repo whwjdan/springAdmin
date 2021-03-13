@@ -29,6 +29,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
     testCompileOnly 'junit:junit:4.12'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.1.0'
+    implementation group: 'org.jasypt', name: 'jasypt', version: '1.9.2'
 
 }
 
