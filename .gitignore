@@ -16,7 +16,7 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-!**/src/main/**/Config/
+**/src/main/**/Config/
 ### IntelliJ IDEA ###
 .idea
 *.iws
