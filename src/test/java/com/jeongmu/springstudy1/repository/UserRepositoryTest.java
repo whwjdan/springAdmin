@@ -2,6 +2,7 @@ package com.jeongmu.springstudy1.repository;
 
 import com.jeongmu.springstudy1.Springstudy1ApplicationTests;
 import com.jeongmu.springstudy1.model.entity.User;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,5 +57,26 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
             userRepository.save(selectUser);
               } );
     }
+
+    @Test
+    public void delete(){
+        Optional<User> user = userRepository.findById(1L);
+
+        Assert.assertTrue(user.isPresent());
+
+        user.ifPresent(selectUser->{
+            userRepository.delete(selectUser);
+        });
+
+        Optional<User> deleteUser = userRepository.findById(2L);
+
+        if(deleteUser.isPresent()){
+            System.out.println("데이터 존재 : "+deleteUser.get());
+        }else {
+            System.out.println("데이터 삭제 데이터 없음");
+        }
+
+        Assert.assertFalse(deleteUser.isPresent());
+   }
 
 }
