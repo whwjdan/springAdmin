@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity // order_detail 테이블에 연결
-@ToString(exclude = {"user","item"})
+//@ToString(exclude = {"user","item"})
 public class OrderDetail {
 
     @Id
@@ -21,13 +22,29 @@ public class OrderDetail {
 
     private LocalDateTime orderAt;
 
+    private String status;
+
+    private LocalDateTime arrivalDate;
+
+    private Integer quantity;
+
+    private BigDecimal totalPrice;
+
+    private LocalDateTime createdAt;
+
+    private String createdBy;
+
+    private LocalDateTime updatedAt;
+
+    private String updatedBy;
+
     // N : 1
     // hibernate를 통한 연관관계 매핑 시 객체 이름을 매핑해줘야함
     // Long 타입 Id -> 테이블 객체
-    @ManyToOne
+/*    @ManyToOne
     private User user;
 
     @ManyToOne
-    private Item item;
+    private Item item;*/
 
 }
