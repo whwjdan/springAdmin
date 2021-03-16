@@ -1,6 +1,7 @@
 package com.jeongmu.springstudy1.repository;
 
 import com.jeongmu.springstudy1.Springstudy1ApplicationTests;
+import com.jeongmu.springstudy1.model.entity.Item;
 import com.jeongmu.springstudy1.model.entity.User;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -34,14 +35,19 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
     }
 
     @Test
+    @Transactional
     public void read(){
         // id가 Long 타입이므로 2뒤에 L붙임
         // Optional 있을 수 도 있고 없을 수 도 있다.
-        Optional<User> user = userRepository.findById(2L);
+        // StackOverflow시 롬북의 ToString 메서드에서 외래키 객체를 exclude
+        Optional<User> user = userRepository.findById(1L);
 
         user.ifPresent(selectUser ->{
-            System.out.println("user : "+selectUser);
-            System.out.println("email : "+selectUser.getEmail());
+           selectUser.getOrderDetailList().stream().forEach(detail ->{
+                Item item = detail.getItem();
+                System.out.println(item);
+            });
+
         } );
 
     }
