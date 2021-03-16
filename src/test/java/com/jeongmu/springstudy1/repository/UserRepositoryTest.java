@@ -40,7 +40,7 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
         // id가 Long 타입이므로 2뒤에 L붙임
         // Optional 있을 수 도 있고 없을 수 도 있다.
         // StackOverflow시 롬북의 ToString 메서드에서 외래키 객체를 exclude
-        Optional<User> user = userRepository.findById(1L);
+        Optional<User> user = userRepository.findByAccountAndEmail("TestUser03", "TestUser01@gmail.com");
 
         user.ifPresent(selectUser ->{
            selectUser.getOrderDetailList().stream().forEach(detail ->{

@@ -20,9 +20,17 @@ public class User {
 
     private String account;
 
+    private String password;
+
+    private String status;
+
     private String email;
 
     private String phoneNumber;
+
+    private String registeredAt;
+
+    private String unregisteredBy;
 
     private LocalDateTime createdAt;
 
@@ -33,7 +41,21 @@ public class User {
     private String updatedBy;
 
     // 1:N
+    // LAZY = 지연로딩, EAGER = 즉시로딩
+
+    //LAZY = SELECT * FROM item where id = ?
+    // orderDetailList 변수에 대해 get 메서드를 싱행하지 않는 이상
+    // 연관관계가 설정된 테이블에 대해 select를 하지 않겠다.
+
+    //EAGER = 1:1에서만
+    // 성능 이슈 혹은 데이터를 불러오지 못 할 가능성 지나친 Join, Join으로 인한 데이터 나오지 않음
+    // item_id = order_detail.item_id
+    // user_id = order_detail.user_id
+    // where item.id = ?
+    // JOIN item item0_ left outer join order_detail ~~~ left outer join ~~
+
+
     // mappedBy = "user" orderDetail의 객체 이름과 동일
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<OrderDetail> orderDetailList;
+    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    //private List<OrderDetail> orderDetailList;
 }
