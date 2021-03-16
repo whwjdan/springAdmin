@@ -42,13 +42,14 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
         // StackOverflow시 롬북의 ToString 메서드에서 외래키 객체를 exclude
         Optional<User> user = userRepository.findByAccountAndEmail("TestUser03", "TestUser01@gmail.com");
 
-        user.ifPresent(selectUser ->{
+        // cnt + shift + /
+/*        user.ifPresent(selectUser ->{
            selectUser.getOrderDetailList().stream().forEach(detail ->{
                 Item item = detail.getItem();
                 System.out.println(item);
             });
 
-        } );
+        } );*/
 
     }
 
