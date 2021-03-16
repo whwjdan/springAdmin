@@ -21,7 +21,7 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
     public void create(){
         // String sql = insert into user (%s, %s, %d) value (account, email, age);
         User user = new User();
-        user.setAccount("TestUser01");
+        user.setAccount("TestUser03");
         user.setEmail("TestUser01@gmail.com");
         user.setPhoneNumber("010-1111-1111");
         user.setCreatedAt(LocalDateTime.now());
