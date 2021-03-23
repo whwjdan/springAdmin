@@ -20,8 +20,6 @@ public class OrderDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime orderAt;
-
     private String status;
 
     private LocalDateTime arrivalDate;
@@ -37,6 +35,11 @@ public class OrderDetail {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    private Long itemId;
+
+    private Long orderGroupId;
+
 
     // N : 1
     // hibernate를 통한 연관관계 매핑 시 객체 이름을 매핑해줘야함
