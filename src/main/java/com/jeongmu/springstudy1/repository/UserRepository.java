@@ -9,9 +9,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-
-
-
+    User findFirstByPhoneNumberOrderByIdDesc(String phoneNumber);
 
 
     // findBy까지 보고 select로 판별, Account, account를 매칭

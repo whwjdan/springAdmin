@@ -48,6 +48,9 @@ public class CategoryRepositoryTest extends Springstudy1ApplicationTests {
 
         Optional<Category> optionalCategory = categoryRepository.findByTypeAndId("COMPUTER", 1L);
 
+
+        // select * from category where type = "computer"
+
         optionalCategory.ifPresent(category -> {
             System.out.println(category.getId());
             System.out.println(category.getTitle());

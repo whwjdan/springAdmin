@@ -28,9 +28,9 @@ public class User {
 
     private String phoneNumber;
 
-    private String registeredAt;
+    private LocalDateTime registeredAt;
 
-    private String unregisteredBy;
+    private String unregisteredAt;
 
     private LocalDateTime createdAt;
 
