@@ -63,7 +63,17 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
 
         } );*/
 
-        User user = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-2222");
+        User user = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-0001");
+
+        if(user != null){
+            user.getOrderGroupList().stream().forEach(orderGroup -> {
+                System.out.println("총 금액 : " + orderGroup.getTotalPrice());
+                System.out.println("총 수량 : " + orderGroup.getTotalQuantity());
+                System.out.println("수령지 : " + orderGroup.getRevAddress());
+            });
+        }
+
+
         Assert.assertNotNull(user);
 
 
