@@ -41,6 +41,19 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
         //user.setCreatedBy(createdBy);
         user.setRegisteredAt(registeredAt);
 
+        User u = User.builder()
+                .account(account)
+                .password(password)
+                .status(status)
+                .email(email)
+                .build();
+        // builder패턴을 사용하여 자동으로 원하는 매개변수를 가진 생성자를 호출하고
+        // 기존 코드 수정시에도 크게 바꾸는것 없이 편하게 사용가능
+        // Entity에 @Builder 어노테이션 추가
+
+        // @Accessors(chain = true) 체이닝 체인 패턴
+        // 객체 업데이트 시 user.setEmail("").set~~.set~~; 등으로 가능하게 해줌
+        // 혹은 생성자에도 사용
         User newUser = userRepository.save(user);
         Assert.assertNotNull(newUser);
 
