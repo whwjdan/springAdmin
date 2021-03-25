@@ -37,8 +37,8 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
         user.setStatus(status);
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
-        user.setCreatedAt(createdAt);
-        user.setCreatedBy(createdBy);
+        //user.setCreatedAt(createdAt);
+        //user.setCreatedBy(createdBy);
         user.setRegisteredAt(registeredAt);
 
         User newUser = userRepository.save(user);
