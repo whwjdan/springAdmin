@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -29,12 +33,16 @@ public class OrderDetail {
 
     private BigDecimal totalPrice;
 
+    @CreatedDate
     private LocalDateTime createdAt;
 
+    @CreatedBy
     private String createdBy;
 
+    @LastModifiedDate
     private LocalDateTime updatedAt;
 
+    @LastModifiedBy
     private String updatedBy;
 
     @ManyToOne
