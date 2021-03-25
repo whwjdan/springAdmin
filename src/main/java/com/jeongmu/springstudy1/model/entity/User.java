@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@ToString(exclude = {"orderGroup"})
+@ToString(exclude = {"orderGroupList"})
 public class User {
 
     @Id
