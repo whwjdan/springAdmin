@@ -8,6 +8,7 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity // order_detail 테이블에 연결
 @ToString(exclude = {"orderGroup", "item"})
+@EntityListeners(AuditingEntityListener.class)
 //@ToString(exclude = {"user","item"})
 public class OrderDetail {
 
