@@ -28,7 +28,7 @@ public class OrderDetailRepositoryTest extends Springstudy1ApplicationTests {
         orderDetail.setCreatedBy("AdminServer");
 
         //orderDetail.setOrderGroupId(1L);
-        orderDetail.setItemId(1L);
+        //orderDetail.setItemId(1L);
 
 
         OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
