@@ -20,7 +20,6 @@ public class OrderGroupRepositoryTest extends Springstudy1ApplicationTests {
         OrderGroup orderGroup = new OrderGroup();
         orderGroup.setStatus("COMPLETE");
         orderGroup.setOrderType("ALL");
-        orderGroup.setRevName("홍길동");
         orderGroup.setRevAddress("서울시 강남구");
         orderGroup.setPaymentType("CARD");
         orderGroup.setTotalPrice(BigDecimal.valueOf(900000));
@@ -29,7 +28,7 @@ public class OrderGroupRepositoryTest extends Springstudy1ApplicationTests {
         orderGroup.setArrivalDate(LocalDateTime.now());
         orderGroup.setCreatedAt(LocalDateTime.now());
         orderGroup.setCreatedBy("AdminServer");
-        orderGroup.setUserId(1L);
+        //orderGroup.setUserId(1L);
 
         OrderGroup newOrderGroup = orderGroupRepository.save(orderGroup);
 

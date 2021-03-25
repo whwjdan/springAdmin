@@ -67,9 +67,20 @@ public class UserRepositoryTest extends Springstudy1ApplicationTests {
 
         if(user != null){
             user.getOrderGroupList().stream().forEach(orderGroup -> {
+                System.out.println("---------------주문묶음--------------");
                 System.out.println("총 금액 : " + orderGroup.getTotalPrice());
                 System.out.println("총 수량 : " + orderGroup.getTotalQuantity());
                 System.out.println("수령지 : " + orderGroup.getRevAddress());
+
+                System.out.println("---------------주문상세--------------");
+
+                orderGroup.getOrderDetailList().stream().forEach(orderDetail -> {
+                    System.out.println("주문의 상태 : " + orderDetail.getStatus());
+                    System.out.println("도착예정일자 : "+ orderDetail.getArrivalDate());
+                });
+
+
+
             });
         }
 
