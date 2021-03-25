@@ -4,17 +4,17 @@ package com.jeongmu.springstudy1.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = {"partnerList"})
 public class Category {
 
     @Id
@@ -32,4 +32,7 @@ public class Category {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    private List<Partner> partnerList;
 }

@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity // order_detail 테이블에 연결
+@ToString(exclude = {"orderGroup", "item"})
 //@ToString(exclude = {"user","item"})
 public class OrderDetail {
 
@@ -36,9 +37,13 @@ public class OrderDetail {
 
     private String updatedBy;
 
-    private Long itemId;
+    @ManyToOne
+    private Item item;
 
-    private Long orderGroupId;
+    // OrderDetail N : 1 OrderGroup
+    @ManyToOne
+    private OrderGroup orderGroup;
+    // orderGroup = 연관관계 설정 된 mappedBy 와 매
 
 
     // N : 1
