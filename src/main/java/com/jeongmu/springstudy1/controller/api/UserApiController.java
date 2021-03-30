@@ -1,13 +1,17 @@
 package com.jeongmu.springstudy1.controller.api;
 
 import com.jeongmu.springstudy1.ifs.CrudInterface;
+import com.jeongmu.springstudy1.model.entity.User;
 import com.jeongmu.springstudy1.model.network.Header;
 import com.jeongmu.springstudy1.model.network.request.UserApiRequest;
 import com.jeongmu.springstudy1.model.network.response.UserApiResponse;
+import com.jeongmu.springstudy1.repository.UserRepository;
 import com.jeongmu.springstudy1.service.UserApiLogicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Slf4j
 // Log >> 롬복에 포함된 로그
@@ -47,14 +51,18 @@ public class UserApiController implements CrudInterface<UserApiRequest, UserApiR
 
     @Override
     @PutMapping("")
-    public Header<UserApiResponse> update(@RequestBody Header<UserApiRequest> userApiRequest) {
-        return null;
+    public Header<UserApiResponse> update(@RequestBody Header<UserApiRequest> request) {
+
+        log.info("update : {}", request);
+        return userApiLogicService.update(request);
+
     }
 
     @Override
     @DeleteMapping("{id}")
     public Header delete(@PathVariable Long id) {
-        return null;
+        log.info("delete : {}", id);
+        return userApiLogicService.delete(id);
     }
 
 }

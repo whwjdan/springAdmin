@@ -38,7 +38,7 @@ public class User {
 
     private LocalDateTime registeredAt;
 
-    private String unregisteredAt;
+    private LocalDateTime unregisteredAt;
 
     @CreatedDate
     private LocalDateTime createdAt;
